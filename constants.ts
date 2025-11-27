@@ -15,7 +15,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 85,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800&auto=format&fit=crop',
+    // Rice in open jute sack
+    image: 'https://images.unsplash.com/photo-1630612660738-9cb52585f8c6?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -27,7 +28,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 42,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop',
+    // Bulk rice heap/sack view
+    image: 'https://images.unsplash.com/photo-1596560548464-f010549b84d7?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -39,7 +41,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 115,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1585996669643-02ae81284534?q=80&w=800&auto=format&fit=crop',
+    // Yellow lentils in bulk/sack
+    image: 'https://images.unsplash.com/photo-1610725664338-23c6b76985c8?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -51,7 +54,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 1550,
     minOrderQty: 1,
     unit: 'tin',
-    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=800&auto=format&fit=crop',
+    // Oil bottles/cans
+    image: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -63,7 +67,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 180,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800&auto=format&fit=crop',
+    // Spices in sacks/bowls in market
+    image: 'https://images.unsplash.com/photo-1588612502804-d50e8229f3d6?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -75,7 +80,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 320,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1627328561499-a3584d4ee4f7?q=80&w=800&auto=format&fit=crop',
+    // Red powder in bulk sacks
+    image: 'https://images.unsplash.com/photo-1601053744933-722a4d95267b?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -87,7 +93,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 85,
     minOrderQty: 1,
     unit: 'bottle (750ml)',
-    image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=800&auto=format&fit=crop',
+    // Sauce bottles
+    image: 'https://images.unsplash.com/photo-1598155523122-38423bb4d693?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -99,7 +106,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 65,
     minOrderQty: 1,
     unit: 'bottle (750ml)',
-    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=800&auto=format&fit=crop',
+    // Green sauce/chilli aesthetic
+    image: 'https://images.unsplash.com/photo-1582234372928-8687b8971f45?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -111,7 +119,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 88,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1515543904379-3d757afe72e3?q=80&w=800&auto=format&fit=crop',
+    // Sacks of yellow lentils/grains
+    image: 'https://images.unsplash.com/photo-1455612693675-112974d4880b?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -123,7 +132,8 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 310,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1599940829639-684260d8a4f9?q=80&w=800&auto=format&fit=crop',
+    // Spices/Seeds in sacks
+    image: 'https://images.unsplash.com/photo-1507723908985-e35e7df25555?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   }
 ];
