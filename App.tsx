@@ -1,0 +1,76 @@
+import React, { useState } from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { MarketTrends } from './components/MarketTrends';
+import { ProductList } from './components/ProductList';
+import { CartDrawer } from './components/CartDrawer';
+import { ChatBot } from './components/ChatBot';
+import { Footer } from './components/Footer';
+import { Product, CartItem } from './types';
+
+function App() {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleAddToCart = (product: Product) => {
+    setCartItems(prev => {
+      const existing = prev.find(item => item.id === product.id);
+      if (existing) {
+        return prev.map(item => 
+          item.id === product.id 
+            ? { ...item, qty: item.qty + product.minOrderQty } 
+            : item
+        );
+      }
+      return [...prev, { ...product, qty: product.minOrderQty }];
+    });
+    setIsCartOpen(true);
+  };
+
+  const handleRemoveItem = (id: string) => {
+    setCartItems(prev => prev.filter(item => item.id !== id));
+  };
+
+  const handleUpdateQty = (id: string, delta: number) => {
+    setCartItems(prev => prev.map(item => {
+      if (item.id === id) {
+        // Ensure quantity doesn't drop below minOrderQty or 1
+        const newQty = Math.max(item.minOrderQty, item.qty + delta);
+        return { ...item, qty: newQty };
+      }
+      return item;
+    }));
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      <Navbar 
+        cartCount={cartItems.length} 
+        onCartClick={() => setIsCartOpen(true)}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+      />
+      
+      <main className="flex-grow">
+        <Hero />
+        <MarketTrends />
+        <ProductList onAddToCart={handleAddToCart} />
+      </main>
+
+      <Footer />
+      
+      <CartDrawer 
+        isOpen={isCartOpen} 
+        onClose={() => setIsCartOpen(false)} 
+        cartItems={cartItems}
+        onRemoveItem={handleRemoveItem}
+        onUpdateQty={handleUpdateQty}
+      />
+
+      <ChatBot />
+    </div>
+  );
+}
+
+export default App;
