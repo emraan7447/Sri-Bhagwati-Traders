@@ -6,6 +6,8 @@ export enum Category {
   SAUCES = 'Sauces & Condiments'
 }
 
+export type LayoutType = 'classic' | 'modern' | 'dark';
+
 export interface Product {
   id: string;
   name: string;

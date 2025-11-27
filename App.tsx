@@ -7,9 +7,11 @@ import { CartDrawer } from './components/CartDrawer';
 import { ChatBot } from './components/ChatBot';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
+import { LayoutSwitcher } from './components/LayoutSwitcher';
 import { Product, CartItem } from './types';
+import { ThemeProvider } from './context/ThemeContext';
 
-function App() {
+function AppContent() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -37,7 +39,6 @@ function App() {
   const handleUpdateQty = (id: string, delta: number) => {
     setCartItems(prev => prev.map(item => {
       if (item.id === id) {
-        // Ensure quantity doesn't drop below minOrderQty or 1
         const newQty = Math.max(item.minOrderQty, item.qty + delta);
         return { ...item, qty: newQty };
       }
@@ -46,7 +47,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 flex flex-col font-sans">
+    <div className="min-h-screen flex flex-col font-sans transition-colors duration-500">
       <Navbar 
         cartCount={cartItems.length} 
         onCartClick={() => setIsCartOpen(true)}
@@ -77,8 +78,15 @@ function App() {
       />
 
       <ChatBot />
+      <LayoutSwitcher />
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}

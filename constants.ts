@@ -27,7 +27,7 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 42,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1596568359553-a56de6970068?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -39,7 +39,7 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 115,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1585996674686-26d6d45b5c91?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1585996669643-02ae81284534?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -111,7 +111,7 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 88,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1610725663728-662584102263?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1515543904379-3d757afe72e3?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   },
   {
@@ -123,7 +123,7 @@ export const PRODUCTS: Product[] = [
     priceWholesale: 310,
     minOrderQty: 1,
     unit: 'kg',
-    image: 'https://images.unsplash.com/photo-1599940859674-a7fef05b94ae?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1599940829639-684260d8a4f9?q=80&w=800&auto=format&fit=crop',
     inStock: true,
   }
 ];
