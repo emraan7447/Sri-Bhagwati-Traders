@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onContactClick: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
   return (
     <div id="home" className="relative bg-emerald-900 overflow-hidden">
       <div className="absolute inset-0">
@@ -28,12 +32,12 @@ export const Hero: React.FC = () => {
           >
             View Price List
           </a>
-          <a
-            href="#contact"
+          <button
+            onClick={onContactClick}
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 transition-colors"
           >
             Contact Sales <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+          </button>
         </div>
       </div>
     </div>

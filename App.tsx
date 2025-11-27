@@ -6,11 +6,13 @@ import { ProductList } from './components/ProductList';
 import { CartDrawer } from './components/CartDrawer';
 import { ChatBot } from './components/ChatBot';
 import { Footer } from './components/Footer';
+import { ContactModal } from './components/ContactModal';
 import { Product, CartItem } from './types';
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleAddToCart = (product: Product) => {
@@ -50,10 +52,11 @@ function App() {
         onCartClick={() => setIsCartOpen(true)}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
+        onContactClick={() => setIsContactOpen(true)}
       />
       
       <main className="flex-grow">
-        <Hero />
+        <Hero onContactClick={() => setIsContactOpen(true)} />
         <MarketTrends />
         <ProductList onAddToCart={handleAddToCart} />
       </main>
@@ -66,6 +69,11 @@ function App() {
         cartItems={cartItems}
         onRemoveItem={handleRemoveItem}
         onUpdateQty={handleUpdateQty}
+      />
+
+      <ContactModal 
+        isOpen={isContactOpen} 
+        onClose={() => setIsContactOpen(false)} 
       />
 
       <ChatBot />

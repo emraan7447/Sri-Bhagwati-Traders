@@ -1,5 +1,10 @@
 import { Category, Product } from './types';
 
+export const PROPRIETORS = [
+  { name: "Trilok Ramawath", number: "9346994172" },
+  { name: "Om Prakash Ramawath", number: "7013084492" }
+];
+
 export const PRODUCTS: Product[] = [
   {
     id: '1',

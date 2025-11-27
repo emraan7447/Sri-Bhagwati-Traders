@@ -1,12 +1,8 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, MessageCircle } from 'lucide-react';
+import { PROPRIETORS } from '../constants';
 
 export const Footer: React.FC = () => {
-  const contacts = [
-    { name: "Trilok Ramawath", number: "9346994172" },
-    { name: "Om Prakash Ramawath", number: "7013084492" }
-  ];
-
   return (
     <footer id="contact" className="bg-gray-900 text-white pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +27,7 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-emerald-400">Contact Proprietors</h3>
             <div className="space-y-6">
-              {contacts.map((contact, index) => (
+              {PROPRIETORS.map((contact, index) => (
                 <div key={index} className="bg-gray-800 rounded-lg p-4 border border-gray-700">
                   <p className="text-sm text-gray-400 mb-1">Proprietor</p>
                   <p className="font-medium text-white mb-3">{contact.name}</p>

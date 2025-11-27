@@ -6,9 +6,10 @@ interface NavbarProps {
   onCartClick: () => void;
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
+  onContactClick: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, mobileMenuOpen, setMobileMenuOpen }) => {
+export const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, mobileMenuOpen, setMobileMenuOpen, onContactClick }) => {
   return (
     <nav className="bg-emerald-800 text-white sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, mobileMe
                 <a href="#home" className="hover:bg-emerald-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
                 <a href="#products" className="hover:bg-emerald-700 px-3 py-2 rounded-md text-sm font-medium">Products</a>
                 <a href="#trends" className="hover:bg-emerald-700 px-3 py-2 rounded-md text-sm font-medium">Market Trends</a>
-                <a href="#contact" className="hover:bg-emerald-700 px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
+                <button onClick={onContactClick} className="hover:bg-emerald-700 px-3 py-2 rounded-md text-sm font-medium">Contact Us</button>
               </div>
             </div>
           </div>
@@ -56,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, mobileMe
             <a href="#home" onClick={() => setMobileMenuOpen(false)} className="block hover:bg-emerald-700 px-3 py-2 rounded-md text-base font-medium">Home</a>
             <a href="#products" onClick={() => setMobileMenuOpen(false)} className="block hover:bg-emerald-700 px-3 py-2 rounded-md text-base font-medium">Products</a>
             <a href="#trends" onClick={() => setMobileMenuOpen(false)} className="block hover:bg-emerald-700 px-3 py-2 rounded-md text-base font-medium">Trends</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block hover:bg-emerald-700 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            <button onClick={() => { onContactClick(); setMobileMenuOpen(false); }} className="w-full text-left block hover:bg-emerald-700 px-3 py-2 rounded-md text-base font-medium">Contact</button>
             <button onClick={() => { onCartClick(); setMobileMenuOpen(false); }} className="w-full text-left flex items-center hover:bg-emerald-700 px-3 py-2 rounded-md text-base font-medium">
               <ShoppingCart className="h-5 w-5 mr-2" /> Cart ({cartCount})
             </button>
