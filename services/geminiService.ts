@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 // Construct the system instruction with inventory context
 const inventoryContext = PRODUCTS.map(p => 
-  `- ${p.name} (${p.category}): Wholesale ₹${p.priceWholesale}/${p.unit} (MRP ₹${p.priceMRP}). Min Order: ${p.minOrderQty} ${p.unit}.`
+  `- ${p.name} (${p.category}): Wholesale ₹${p.priceWholesale}/${p.unit} (MRP ₹${p.priceMRP}).`
 ).join('\n');
 
 const SYSTEM_INSTRUCTION = `
@@ -23,7 +23,7 @@ ${inventoryContext}
 
 Rules:
 1. Always be polite, professional, and concise.
-2. If a user asks for a price, quote the Wholesale price and mention the Minimum Order Quantity (MOQ).
+2. If a user asks for a price, quote the Wholesale price.
 3. If a user asks about items not in the list, politely say we don't stock them yet but can arrange them on special request.
 4. If a user wants to calculate a total (e.g., "Cost for 100kg Rice"), do the math accurately based on the inventory prices.
 5. Emphasize the savings (difference between MRP and Wholesale) when appropriate.

@@ -89,9 +89,6 @@ export const ProductList: React.FC<ProductListProps> = ({ onAddToCart }) => {
                   </div>
                   <div className="text-right">
                     <p className="text-xs text-stone-400 line-through decoration-stone-300 mb-1">MRP ₹{product.priceMRP}</p>
-                    <div className="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded-md">
-                      MOQ: {product.minOrderQty} {product.unit}
-                    </div>
                   </div>
                 </div>
               </div>
