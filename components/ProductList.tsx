@@ -15,18 +15,23 @@ export const ProductList: React.FC<ProductListProps> = ({ onAddToCart }) => {
     : PRODUCTS.filter(p => p.category === selectedCategory);
 
   return (
-    <section id="products" className="py-16 bg-slate-50">
+    <section id="products" className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-gray-900 mb-8">Wholesale Inventory</h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+             <h2 className="text-4xl font-bold text-stone-900 font-serif">Wholesale Inventory</h2>
+             <p className="mt-3 text-stone-500 max-w-xl">Browse our premium selection of grains, spices, and oils available for bulk purchase.</p>
+          </div>
+        </div>
         
         {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-12">
           <button
             onClick={() => setSelectedCategory('All')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
               selectedCategory === 'All' 
-                ? 'bg-emerald-600 text-white' 
-                : 'bg-white text-gray-700 hover:bg-emerald-50 border border-gray-200'
+                ? 'bg-stone-900 text-white shadow-lg scale-105' 
+                : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
             }`}
           >
             All Items
@@ -35,10 +40,10 @@ export const ProductList: React.FC<ProductListProps> = ({ onAddToCart }) => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 selectedCategory === cat 
-                  ? 'bg-emerald-600 text-white' 
-                  : 'bg-white text-gray-700 hover:bg-emerald-50 border border-gray-200'
+                  ? 'bg-stone-900 text-white shadow-lg scale-105' 
+                  : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
               }`}
             >
               {cat}
@@ -47,41 +52,47 @@ export const ProductList: React.FC<ProductListProps> = ({ onAddToCart }) => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
-              <div className="h-48 w-full overflow-hidden relative group">
-                 <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
-                 {/* Badge for savings */}
-                 <div className="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">
-                   Save ₹{product.priceMRP - product.priceWholesale}
+            <div key={product.id} className="group bg-white rounded-3xl p-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 border border-stone-100">
+              <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-stone-100">
+                 <img 
+                    src={product.image} 
+                    alt={product.name} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                 />
+                 <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-stone-800 uppercase tracking-wide border border-white/50">
+                   {product.category}
                  </div>
+                 {/* Quick Add Button that appears on hover */}
+                 <button 
+                   onClick={() => onAddToCart(product)}
+                   className="absolute bottom-3 right-3 bg-white text-stone-900 p-3 rounded-full shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-emerald-600 hover:text-white"
+                   aria-label="Add to cart"
+                 >
+                   <Plus className="h-5 w-5" />
+                 </button>
               </div>
-              <div className="p-4 flex-1 flex flex-col">
+              
+              <div className="px-3 pt-5 pb-3">
                 <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <span className="text-xs font-semibold text-emerald-600 uppercase tracking-wide">{product.category}</span>
-                    <h3 className="text-lg font-bold text-gray-900 leading-tight">{product.name}</h3>
-                  </div>
+                  <h3 className="text-xl font-bold text-stone-900 font-serif leading-tight">{product.name}</h3>
                 </div>
-                <p className="text-gray-500 text-sm mb-4 flex-1">{product.description}</p>
+                <p className="text-stone-500 text-sm mb-6 line-clamp-2">{product.description}</p>
                 
-                <div className="mt-auto border-t border-gray-100 pt-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <div className="text-sm text-gray-500">Wholesale Price</div>
-                    <div className="text-xl font-bold text-emerald-700">₹{product.priceWholesale}<span className="text-sm font-normal text-gray-500">/{product.unit}</span></div>
+                <div className="flex items-end justify-between border-t border-stone-100 pt-4">
+                  <div>
+                    <p className="text-xs text-stone-400 font-medium mb-1">Wholesale Price</p>
+                    <div className="text-2xl font-bold text-emerald-700 font-serif">
+                      ₹{product.priceWholesale}<span className="text-sm font-sans font-normal text-stone-500">/{product.unit}</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center mb-4">
-                    <div className="text-xs text-gray-400 line-through">MRP ₹{product.priceMRP}</div>
-                    <div className="text-xs font-medium text-orange-600">Min. Order: {product.minOrderQty} {product.unit}</div>
+                  <div className="text-right">
+                    <p className="text-xs text-stone-400 line-through decoration-stone-300 mb-1">MRP ₹{product.priceMRP}</p>
+                    <div className="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded-md">
+                      MOQ: {product.minOrderQty} {product.unit}
+                    </div>
                   </div>
-                  
-                  <button
-                    onClick={() => onAddToCart(product)}
-                    className="w-full flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-md font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                  >
-                    <Plus className="h-4 w-4 mr-2" /> Add to Quote
-                  </button>
                 </div>
               </div>
             </div>

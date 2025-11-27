@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-stone-50 flex flex-col font-sans">
       <Navbar 
         cartCount={cartItems.length} 
         onCartClick={() => setIsCartOpen(true)}
@@ -57,8 +57,8 @@ function App() {
       
       <main className="flex-grow">
         <Hero onContactClick={() => setIsContactOpen(true)} />
-        <MarketTrends />
         <ProductList onAddToCart={handleAddToCart} />
+        <MarketTrends />
       </main>
 
       <Footer />
